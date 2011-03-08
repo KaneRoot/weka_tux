@@ -47,7 +47,7 @@ class TuxList
 		System.out.println(listTux.size()+" éléments :");
 		for(Tux tux : listTux)
 		{
-			System.out.println(tux);
+			System.out.println(tux.toBinaryForm());
 		}
 		//System.out.println(listTux);
 	}

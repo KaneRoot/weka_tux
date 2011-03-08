@@ -115,5 +115,60 @@ class Tux
 		}
 		return res;
 	}
+	public String toBinaryForm()
+	{
+		String res="Tux ";
+		res=res+this.determinant+" ";
+		if(this.montre)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		if(this.lunettes)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		if(this.palmes)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		if(this.gun)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		if(this.couettes)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		if(this.chapeau)
+		{
+			res=res+"1";
+		}
+		else
+		{
+			res=res+"0";
+		}
+		return res;
+	}
+		
 }
 
