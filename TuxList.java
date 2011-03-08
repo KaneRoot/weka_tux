@@ -9,6 +9,18 @@ class TuxList
 	{
 		return this.list;
 	}
+	public Vector<Tux> getSelected()
+	{
+		Vector<Tux> listSelected=new Vector<Tux>();
+		for(Tux tux : this.list)
+		{
+			if(tux.isSelected())
+			{
+				listSelected.add(tux);
+			}
+		}
+		return listSelected;
+	}
 	public static Vector<Tux> genList(int n)
 	{
 		Vector<Integer> listenombre=new Vector<Integer>();
@@ -22,6 +34,7 @@ class TuxList
 		for(int i=0;i<n;i++)
 		{
 			int determinant=rnd.nextInt(listenombre.size());
+			//int determinant=i;
 			int determinant2=listenombre.remove(determinant);
 			listTux.add(new Tux(determinant2));
 		}

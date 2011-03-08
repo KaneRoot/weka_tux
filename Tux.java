@@ -7,6 +7,8 @@ class Tux
 	private boolean palmes;
 	private boolean lunettes;
 	private boolean montre;
+	private int determinant;
+	boolean selected;
 	
 	public Tux(boolean chapeau,boolean couettes,boolean gun, boolean palmes, boolean lunettes,boolean montre)
 	{
@@ -16,15 +18,18 @@ class Tux
 		this.palmes=palmes;
 		this.lunettes=lunettes;
 		this.montre=montre;
+		this.selected=false;
 	}
 	public Tux(int determinant)
 	{
-		this.chapeau=(determinant%2)==0;
-		this.couettes=((determinant/2)%2)==0;
-		this.gun=((determinant/4)%2)==0;
-		this.palmes=((determinant/8)%2)==0;
-		this.lunettes=((determinant/16)%2)==0;
-		this.montre=((determinant/32)%2)==0;
+		this.chapeau=(determinant%2)==1;
+		this.couettes=((determinant/2)%2)==1;
+		this.gun=((determinant/4)%2)==1;
+		this.palmes=((determinant/8)%2)==1;
+		this.lunettes=((determinant/16)%2)==1;
+		this.montre=((determinant/32)%2)==1;
+		this.determinant=determinant;
+		this.selected=false;
 	}
 	public static Vector<String> listAttributes()
 	{
@@ -49,15 +54,15 @@ class Tux
 	}
 	public boolean aUnChapeau()
 	{
-		return chapeau;
+		return this.chapeau;
 	}
 	public boolean aDesCouettes()
 	{
-		return couettes;
+		return this.couettes;
 	}
 	public boolean aDesPalmes()
 	{
-		return palmes;
+		return this.palmes;
 	}
 	public boolean aUneMontre()
 	{
@@ -65,12 +70,25 @@ class Tux
 	}
 	public boolean lunettes()
 	{
-		return lunettes;
+		return this.lunettes;
+	}
+	public boolean isSelected()
+	{
+		return this.selected;
+	}
+	public void select()
+	{
+		this.selected=true;
+	}
+	public void deselect()
+	{
+		this.selected=false;
 	}
 	@Override
 	public String toString()
 	{
 		String res="Tux ";
+		res=res+this.determinant+" ";
 		if(this.chapeau)
 		{
 			res=res+"Chapeau ";
