@@ -1,9 +1,15 @@
+import java.awt.Event;
+import java.awt.event.*;
+
 public class JButtonListener implements ActionListener
 {
-	public JButtonListener(JGrilleTux jgt)
+	JTGrilleTux jgt;
+	public JButtonListener(JTGrilleTux jgt)
 	{
+		this.jgt = jgt;
 	}
 	public void actionPerformed(ActionEvent e)
 	{
+		this.jgt.creation_boutons();
 	}
 }

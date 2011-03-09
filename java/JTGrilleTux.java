@@ -14,6 +14,8 @@ public class JTGrilleTux extends JFrame
 	JPanel jp_haut;
 	JPanel jp_bas;
 	JButton jb_ok_nb_tux;
+	int nb_colonnes = 7;
+	JButton salut = new JButton("Mon seul JButton");
 
 	public JTGrilleTux(String nom)
 	{
@@ -30,8 +32,20 @@ public class JTGrilleTux extends JFrame
 		this.jp_haut.add(jl_nb_tux);
 		this.jp_haut.add(jtf_nb_tux);
 		this.jp_haut.add(jb_ok_nb_tux);
+		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
 	}
-	public void ajout_boutons()
+	public void creation_boutons()
 	{
+		int nb = 0;
+		nb = Integer.parseInt(jtf_nb_tux.getText());
+		if(nb == 0) nb++;
+		int nb_lignes = (nb / this.nb_colonnes) +1 ;
+
+
+		this.add(this.jp_bas, BorderLayout.CENTER);
+		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
+		this.jp_bas.add(this.salut);
+
+		this.pack();
 	}
 }
