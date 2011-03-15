@@ -15,7 +15,7 @@ public class JTGrilleTux extends JFrame
 	JPanel jp_bas;
 	JButton jb_ok_nb_tux;
 	int nb_colonnes = 7;
-	Vector<Tux> listTux;
+	Vector<Image_tux> buttonList;
 	
 	public JTGrilleTux(String nom)
 	{
@@ -44,21 +44,23 @@ public class JTGrilleTux extends JFrame
 
 		try
 		{
-			this.listTux.clear();
+			this.buttonList.clear();
 		}
 		catch(Exception e)
 		{
 		}
 		this.jp_bas.removeAll();
 
-		this.listTux = TuxList.genList(nb);
+		Vector<Tux> listTux = TuxList.genList(nb);
 
 		this.add(this.jp_bas, BorderLayout.CENTER);
 		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
-
+		Image_tux it;
 		for(Tux tux: listTux)
 		{
-			this.jp_bas.add(new Image_tux(tux));
+			it = new Image_tux(tux);
+			this.buttonList.add(it);
+			this.jp_bas.add(it);
 		}
 
 		this.pack();
