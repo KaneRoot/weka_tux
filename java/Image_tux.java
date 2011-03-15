@@ -72,7 +72,7 @@ public class Image_tux extends JPanel
 			}						
 			if(aUnGun)
 			{
-				g.drawImage(image_gun, 68, 0, 140, 140, null);						
+				g.drawImage(image_gun, 74, -15, 200, 200, null);						
 			}
 			if(aUneMontre)
 			{
