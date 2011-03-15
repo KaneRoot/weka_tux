@@ -28,8 +28,8 @@ public class Image_tux extends JFrame
 	private String chemin_image_montre = "../images/montre.png";
 	private String chemin_image_chapeau = "../images/chapeau.png";	
 		
-	public Image_tux(Tux tux)//boolean aUnChapeau, boolean aDesCouettes, boolean aDesPalmes, boolean aDesLunettes, boolean aUnGun, boolean aUneMontre) {
-		super("Image de fond");
+	public Image_tux(Tux tux)//boolean aUnChapeau, boolean aDesCouettes, boolean aDesPalmes, boolean aDesLunettes, boolean aUnGun, boolean aUneMontre) 
+	{	super("Image de fond");
 		this.chemin_image = "../images/tux.png";
 		this.aUnChapeau = Tux.aUnChapeau;	
 		this.aDesCouettes = Tux.aDesCouettes;	
