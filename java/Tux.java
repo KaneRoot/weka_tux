@@ -8,7 +8,7 @@ class Tux
 	private boolean lunettes;
 	private boolean montre;
 	private int determinant;
-	boolean selected;
+	private boolean selected;
 	
 	public Tux(boolean chapeau,boolean couettes,boolean gun, boolean palmes, boolean lunettes,boolean montre)
 	{

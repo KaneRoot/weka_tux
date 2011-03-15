@@ -31,7 +31,7 @@ class TuxList
 		{
 			listenombre.add(i);
 		}
-		for(int i=0;i<n;i++)
+		for(int i=0;i<maxpossibilites && i<n;i++)
 		{
 			int determinant=rnd.nextInt(listenombre.size());
 			//int determinant=i;
