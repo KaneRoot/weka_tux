@@ -11,5 +11,6 @@ public class JButtonListener implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		this.jgt.creation_boutons();
+		this.jgt.setSize(1200,800);
 	}
 }
