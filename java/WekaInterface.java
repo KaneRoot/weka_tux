@@ -9,7 +9,23 @@ class WekaInterface
 {
 	public static void main(String args[])
 	{
-		System.out.println(createAttributes(Tux.listAttributes()));
+		Vector<Tux> listTux=TuxList.genList(20);
+		for(Tux elem: listTux)
+		{
+			if(elem.aDesCouettes())
+			{
+				elem.select();
+			}
+		}
+		/*
+		double[] 
+		for(int i=0;i<results.length;i++)
+		{
+			System.out.println("Résultat : "+results[i]);
+		}*/
+		String results=WekaInterface.getResults(listTux);
+		System.out.println(results);
+		
 	}
 	public static FastVector createAttributes(Vector<String> attributes)
 	{
@@ -24,12 +40,12 @@ class WekaInterface
 		res.addElement(new Attribute("Sélectionné",valeurs));
 		return res;
 	}
-	public static void getResults(Vector<Tux> listTux)
+	public static String getResults(Vector<Tux> listTux)
 	{
 		FastVector attributs=WekaInterface.createAttributes(Tux.listAttributes());
 		 
 		Instances isTrainingSet = new Instances("TuxList", attributs, listTux.size());
-		isTrainingSet.setClassIndex(listTux.size()-1);
+		isTrainingSet.setClassIndex(attributs.size()-1);
 		
 		for(Tux tux: listTux)
 		{
@@ -43,15 +59,23 @@ class WekaInterface
  			elem.setValue((Attribute)attributs.elementAt(6), translateBoolean(tux.isSelected()));
  			isTrainingSet.add(elem);
 		}
-		Classifier cModel=(Classifier) new J48();
+		J48 cModel= new J48();
+		String graph="";
+		double[] fDistribution;
 		try
 		{
 			cModel.buildClassifier(isTrainingSet);
+			Instance iUse=new Instance(attributs.size());
+			iUse.setDataset(isTrainingSet);
+			//fDistribution = cModel.distributionForInstance(iUse);
+			graph=cModel.graph();
 		}
 		catch(java.lang.Exception oe)
 		{
 			System.out.println("Erreur lors de la construction du classifier");
 		}
+
+		return graph;
 	}
 	public static String translateBoolean(boolean val)
 	{
