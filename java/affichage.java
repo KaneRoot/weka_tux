@@ -8,6 +8,7 @@ public class affichage
 		JTGrilleTux grilleTux = new JTGrilleTux("Tri");
 		grilleTux.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		grilleTux.pack();
+		grilleTux.setSize(800,600);
 		grilleTux.setVisible(true);
 	}
 }

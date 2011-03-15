@@ -7,6 +7,16 @@ import javax.swing.table.*;
 import javax.swing.text.*;
 import javax.swing.event.*;
 
+
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 public class JTGrilleTux extends JFrame
 {
 	JLabel jl_nb_tux;
@@ -17,10 +27,19 @@ public class JTGrilleTux extends JFrame
 	int nb_colonnes = 7;
 	Vector<Tux> listTux;
 	
+	BufferedImage image;
+	BufferedImage image_palmes;
+	BufferedImage image_lunettes;
+	BufferedImage image_chapeau;
+	BufferedImage image_gun;
+	BufferedImage image_montre;
+	
 	public JTGrilleTux(String nom)
 	{
 		super(nom);
-
+		
+		chargement_image(); // charge les images.
+		
 		this.jl_nb_tux = new JLabel("Nombre de tux : ");
 		this.jtf_nb_tux = new JTextField("", 5);
 		this.jb_ok_nb_tux = new JButton("OK");
@@ -48,12 +67,37 @@ public class JTGrilleTux extends JFrame
 
 		this.add(this.jp_bas, BorderLayout.CENTER);
 		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
+		
 
 		for(Tux tux: listTux)
 		{
-			this.jp_bas.add(new Image_tux(tux));
+			this.jp_bas.add(new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,this.image_gun,this.image_montre));
 		}
 
 		this.pack();
+	}
+	
+	public void chargement_image()
+	{
+		String chemin_image = "../images/background.png";
+		String chemin_image_gun = "../images/gun.png";
+		String chemin_image_palmes = "../images/palmes.png";
+		String chemin_image_lunettes = "../images/lunettes.png";
+		String chemin_image_montre = "../images/montre.png";
+		String chemin_image_chapeau = "../images/chapeau.png";
+	
+		try 
+		{
+			this.image = ImageIO.read(new File(chemin_image));
+			this.image_palmes = ImageIO.read(new File(chemin_image_palmes));	
+			this.image_lunettes = ImageIO.read(new File(chemin_image_lunettes));
+			this.image_chapeau = ImageIO.read(new File(chemin_image_chapeau));
+			this.image_gun = ImageIO.read(new File(chemin_image_gun));
+			this.image_montre = ImageIO.read(new File(chemin_image_montre));
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }

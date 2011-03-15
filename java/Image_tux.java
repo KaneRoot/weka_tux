@@ -25,59 +25,55 @@ public class Image_tux extends JPanel
 	private boolean aUnGun;
 	private boolean aUneMontre;	
 	
-	private String chemin_image;
-	private String chemin_image_gun = "../images/gun.png";
-	private String chemin_image_palmes = "../images/palmes.png";
-	private String chemin_image_lunettes = "../images/lunettes.png";
-	private String chemin_image_montre = "../images/montre.png";
-	private String chemin_image_chapeau = "../images/chapeau.png";	
-		
-	public Image_tux(Tux tux)//boolean aUnChapeau, boolean aDesCouettes, boolean aDesPalmes, boolean aDesLunettes, boolean aUnGun, boolean aUneMontre) 
-	{	//super("Image de fond");
-		this.chemin_image = "../images/background.png";
+	public BufferedImage image;
+	public BufferedImage image_palmes;	
+	public BufferedImage image_lunettes;
+	public BufferedImage image_chapeau;
+	public BufferedImage image_gun;
+	public BufferedImage image_montre;
+	
+	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre)
+	{
+		this.image=image;
+		this.image_palmes = image_palmes;	
+		this.image_lunettes = image_lunettes;
+		this.image_chapeau = image_chapeau;
+		this.image_gun = image_gun;
+		this.image_montre = image_montre;
+	
 		this.aUnChapeau = tux.aUnChapeau();	
 		this.aDesCouettes = tux.aDesCouettes();	
 		this.aDesPalmes = tux.aDesPalmes();	
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
-		this.aUneMontre = tux.aUneMontre();		
-		
+		this.aUneMontre = tux.aUneMontre();				
 	}
 	public void paint(Graphics g) {
-		try {
-			BufferedImage image = ImageIO.read(new File(chemin_image));
+
 			g.drawImage(image, 0, 0, 180, 200, null);
 			
 			if(aDesPalmes)
 			{
-				BufferedImage image_palmes = ImageIO.read(new File(chemin_image_palmes));
 				g.drawImage(image_palmes, -67, 126, 320, 140, null);						
 			}
 			if(aDesLunettes)
 			{
-				BufferedImage image_lunettes = ImageIO.read(new File(chemin_image_lunettes));
 				g.drawImage(image_lunettes, 30, 5, 130, 100, null);						
 			}
 			if(aUnChapeau)
 			{
-				BufferedImage image_chapeau = ImageIO.read(new File(chemin_image_chapeau));
 				g.drawImage(image_chapeau, 20, -40, 160, 120, null);						
 			}						
 			if(aUnGun)
 			{
-				BufferedImage image_gun = ImageIO.read(new File(chemin_image_gun));
 				g.drawImage(image_gun, 68, 0, 140, 140, null);						
 			}
 			if(aUneMontre)
 			{
-				BufferedImage image_montre = ImageIO.read(new File(chemin_image_montre));
 				g.drawImage(image_montre, 60, 96, 60, 60, null);						
 			}																			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
+	/*
 	public static void main(String args[])
 	{
 		JFrame jframe=new JFrame("Armée de Tux");
@@ -93,5 +89,6 @@ public class Image_tux extends JPanel
 		//c = getContentPane();
 		jframe.setVisible(true);
 	}
+	*/
 
 }
