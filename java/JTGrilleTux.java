@@ -33,6 +33,7 @@ public class JTGrilleTux extends JFrame
 	BufferedImage image_chapeau;
 	BufferedImage image_gun;
 	BufferedImage image_montre;
+	BufferedImage image_couettes;	
 	
 	public JTGrilleTux(String nom)
 	{
@@ -78,7 +79,7 @@ public class JTGrilleTux extends JFrame
 
 		for(Tux tux: listTux)
 		{
-			this.jp_bas.add(new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,this.image_gun,this.image_montre));
+			this.jp_bas.add(new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,this.image_gun,this.image_montre, this.image_couettes));
 		}
 
 		this.pack();
@@ -92,6 +93,7 @@ public class JTGrilleTux extends JFrame
 		String chemin_image_lunettes = "../images/lunettes.png";
 		String chemin_image_montre = "../images/montre.png";
 		String chemin_image_chapeau = "../images/chapeau.png";
+		String chemin_image_couettes = "../images/couettes.png";		
 	
 		try 
 		{
@@ -101,6 +103,7 @@ public class JTGrilleTux extends JFrame
 			this.image_chapeau = ImageIO.read(new File(chemin_image_chapeau));
 			this.image_gun = ImageIO.read(new File(chemin_image_gun));
 			this.image_montre = ImageIO.read(new File(chemin_image_montre));
+			this.image_couettes = ImageIO.read(new File(chemin_image_couettes));			
 		} 
 		catch (IOException e) 
 		{

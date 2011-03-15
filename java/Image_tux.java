@@ -31,8 +31,9 @@ public class Image_tux extends JPanel
 	public BufferedImage image_chapeau;
 	public BufferedImage image_gun;
 	public BufferedImage image_montre;
+	public BufferedImage image_couettes;
 	
-	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre)
+	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre, BufferedImage image_couettes)
 	{
 		this.image=image;
 		this.image_palmes = image_palmes;	
@@ -40,13 +41,14 @@ public class Image_tux extends JPanel
 		this.image_chapeau = image_chapeau;
 		this.image_gun = image_gun;
 		this.image_montre = image_montre;
+		this.image_couettes = image_couettes;		
 	
 		this.aUnChapeau = tux.aUnChapeau();	
 		this.aDesCouettes = tux.aDesCouettes();	
 		this.aDesPalmes = tux.aDesPalmes();	
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
-		this.aUneMontre = tux.aUneMontre();				
+		this.aUneMontre = tux.aUneMontre();						
 	}
 	public void paint(Graphics g) {
 
@@ -56,6 +58,10 @@ public class Image_tux extends JPanel
 			{
 				g.drawImage(image_palmes, -67, 126, 320, 140, null);						
 			}
+			if(aDesCouettes)
+			{
+				g.drawImage(image_couettes, -62, -10, 300, 160, null);						
+			}			
 			if(aDesLunettes)
 			{
 				g.drawImage(image_lunettes, 30, 5, 130, 100, null);						
