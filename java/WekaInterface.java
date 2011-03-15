@@ -3,8 +3,11 @@ import weka.core.Attribute;
 import java.util.Vector;
 class WekaInterface
 {
-
-	public Vector<Attribute> createAttributes(Vector<String> attributes)
+	public static void main(String args[])
+	{
+		System.out.println(createAttributes(Tux.listAttributes()));
+	}
+	public static Vector<Attribute> createAttributes(Vector<String> attributes)
 	{
 		FastVector valeurs = new FastVector(2);
 		valeurs.addElement("oui");

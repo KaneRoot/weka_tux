@@ -68,9 +68,13 @@ class Tux
 	{
 		return this.montre;
 	}
-	public boolean lunettes()
+	public boolean aDesLunettes()
 	{
 		return this.lunettes;
+	}
+	public boolean aUnGun()
+	{
+		return this.gun;
 	}
 	public boolean isSelected()
 	{

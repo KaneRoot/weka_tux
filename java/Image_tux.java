@@ -31,12 +31,12 @@ public class Image_tux extends JFrame
 	public Image_tux(Tux tux)//boolean aUnChapeau, boolean aDesCouettes, boolean aDesPalmes, boolean aDesLunettes, boolean aUnGun, boolean aUneMontre) 
 	{	super("Image de fond");
 		this.chemin_image = "../images/tux.png";
-		this.aUnChapeau = Tux.aUnChapeau;	
-		this.aDesCouettes = Tux.aDesCouettes;	
-		this.aDesPalmes = Tux.aDesPalmes;	
-		this.aDesLunettes = Tux.aDesLunettes;	
-		this.aUnGun = Tux.aUnGun;	
-		this.aUneMontre = Tux.aUneMontre;		
+		this.aUnChapeau = tux.aUnChapeau();	
+		this.aDesCouettes = tux.aDesCouettes();	
+		this.aDesPalmes = tux.aDesPalmes();	
+		this.aDesLunettes = tux.aDesLunettes();	
+		this.aUnGun = tux.aUnGun();	
+		this.aUneMontre = tux.aUneMontre();		
 		initialize();
 	}
 
