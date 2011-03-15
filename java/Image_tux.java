@@ -4,7 +4,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.*;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,10 +16,12 @@ import javax.swing.*;
 
 import java.awt.event.*;
 
-public class Image_tux extends JPanel
+public class Image_tux extends JButton implements ActionListener
 {
 	private Container c;
 	
+	private Tux t;
+	private Color couleur;
 	private boolean aUnChapeau;
 	private boolean aDesCouettes;
 	private boolean aDesPalmes;
@@ -48,7 +52,12 @@ public class Image_tux extends JPanel
 		this.aDesPalmes = tux.aDesPalmes();	
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
+		this.aUneMontre = tux.aUneMontre();		
 		this.aUneMontre = tux.aUneMontre();						
+
+		this.t = tux;
+		this.couleur = Color.CYAN;
+		this.addActionListener(this);
 	}
 	public void paint(Graphics g) {
 
@@ -96,5 +105,17 @@ public class Image_tux extends JPanel
 		jframe.setVisible(true);
 	}
 	*/
+
+	public void actionPerformed(ActionEvent a)
+	{
+		if(this.t.isSelected())
+		{
+			this.t.deselect();
+		}
+		else
+		{
+			this.t.select();
+		}
+	}
 
 }
