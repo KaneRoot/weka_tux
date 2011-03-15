@@ -42,6 +42,13 @@ public class JTGrilleTux extends JFrame
 		nb = nb % (Tux.maxPermutations() + 1);
 		int nb_lignes = (nb / this.nb_colonnes) +1 ;
 
+		try
+		{
+			this.listTux.clear();
+		}
+		catch(Exception e)
+		{
+		}
 		this.jp_bas.removeAll();
 
 		this.listTux = TuxList.genList(nb);
