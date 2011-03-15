@@ -15,8 +15,8 @@ public class JTGrilleTux extends JFrame
 	JPanel jp_bas;
 	JButton jb_ok_nb_tux;
 	int nb_colonnes = 7;
-	JButton salut = new JButton("Mon seul JButton");
-
+	Vector<Tux> listTux;
+	
 	public JTGrilleTux(String nom)
 	{
 		super(nom);
@@ -39,12 +39,20 @@ public class JTGrilleTux extends JFrame
 		int nb = 0;
 		nb = Integer.parseInt(jtf_nb_tux.getText());
 		if(nb == 0) nb++;
+		nb = nb % (Tux.maxPermutations() + 1);
 		int nb_lignes = (nb / this.nb_colonnes) +1 ;
 
+		this.jp_bas.removeAll();
+
+		this.listTux = TuxList.genList(nb);
 
 		this.add(this.jp_bas, BorderLayout.CENTER);
 		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
-		this.jp_bas.add(this.salut);
+
+		for(Tux tux: listTux)
+		{
+			this.jp_bas.add(new Image_tux(tux));
+		}
 
 		this.pack();
 	}
