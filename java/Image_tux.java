@@ -52,14 +52,12 @@ public class Image_tux extends JButton implements ActionListener
 		this.aDesPalmes = tux.aDesPalmes();	
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
-<<<<<<< HEAD
 		this.aUneMontre = tux.aUneMontre();		
+		this.aUneMontre = tux.aUneMontre();						
+
 		this.t = tux;
 		this.couleur = Color.CYAN;
 		this.addActionListener(this);
-=======
-		this.aUneMontre = tux.aUneMontre();						
->>>>>>> 8d4dd80ee4ef3a0da9a1931423778cec8ad02179
 	}
 	public void paint(Graphics g) {
 
@@ -106,7 +104,8 @@ public class Image_tux extends JButton implements ActionListener
 		//c = getContentPane();
 		jframe.setVisible(true);
 	}
-<<<<<<< HEAD
+	*/
+
 	public void actionPerformed(ActionEvent a)
 	{
 		if(this.t.isSelected())
@@ -118,8 +117,5 @@ public class Image_tux extends JButton implements ActionListener
 			this.t.select();
 		}
 	}
-=======
-	*/
 
->>>>>>> 8d4dd80ee4ef3a0da9a1931423778cec8ad02179
 }
