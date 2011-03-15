@@ -20,8 +20,8 @@ public class Image_tux extends JButton implements ActionListener
 {
 	private Container c;
 	
-	private Tux t;
-	private Color couleur;
+	public Tux t;
+	public Color couleur;
 	private boolean aUnChapeau;
 	private boolean aDesCouettes;
 	private boolean aDesPalmes;
@@ -57,6 +57,7 @@ public class Image_tux extends JButton implements ActionListener
 
 		this.t = tux;
 		this.couleur = Color.CYAN;
+		this.setBackground(couleur);
 		this.addActionListener(this);
 	}
 	public void paint(Graphics g) {
@@ -111,10 +112,14 @@ public class Image_tux extends JButton implements ActionListener
 		if(this.t.isSelected())
 		{
 			this.t.deselect();
+			this.couleur = Color.CYAN;
+			this.setBackground(couleur);
 		}
 		else
 		{
+			this.couleur = Color.RED;
 			this.t.select();
+			this.setBackground(couleur);
 		}
 	}
 

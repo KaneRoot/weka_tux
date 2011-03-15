@@ -53,6 +53,8 @@ public class JTGrilleTux extends JFrame
 		this.jp_haut.add(jtf_nb_tux);
 		this.jp_haut.add(jb_ok_nb_tux);
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
+
+		this.buttonList = new Vector<Image_tux>();
 	}
 	public void creation_boutons()
 	{
@@ -76,15 +78,13 @@ public class JTGrilleTux extends JFrame
 		this.add(this.jp_bas, BorderLayout.CENTER);
 		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
 
-		Image_tux it;
 		for(Tux tux: listTux)
 		{
-			it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,this.image_gun,
-					this.image_montre, this.image_couettes);
+			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,
+					this.image_gun,this.image_montre, this.image_couettes);
 			this.buttonList.add(it);
 			this.jp_bas.add(it);
 		}
-		
 
 		this.pack();
 	}
