@@ -53,13 +53,13 @@ public class Image_tux extends JButton implements ActionListener
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
 		this.aUneMontre = tux.aUneMontre();		
-		this.aUneMontre = tux.aUneMontre();						
-
+		this.aUneMontre = tux.aUneMontre();
 		this.t = tux;
-		this.couleur = Color.CYAN;
-		this.setBackground(couleur);
+		//this.couleur = Color.CYAN;
+		//this.setBackground(this.image_final);
 		this.addActionListener(this);
 	}
+	
 	public void paint(Graphics g) {
 
 			g.drawImage(image, 0, 0, 180, 200, null);
@@ -87,26 +87,9 @@ public class Image_tux extends JButton implements ActionListener
 			if(aUneMontre)
 			{
 				g.drawImage(image_montre, 60, 96, 60, 60, null);						
-			}																			
+			}	
 	}
-	/*
-	public static void main(String args[])
-	{
-		JFrame jframe=new JFrame("Armée de Tux");
-		JPanel conteneur=new JPanel(new GridLayout(4,5));
-		jframe.add(conteneur);
-		Vector<Tux> listTux=TuxList.genList(20);
-		for(Tux tux: listTux)
-		{
-			conteneur.add(new Image_tux(tux));
-		}
-		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jframe.pack();
-		//c = getContentPane();
-		jframe.setVisible(true);
-	}
-	*/
-
+	
 	public void actionPerformed(ActionEvent a)
 	{
 		if(this.t.isSelected())

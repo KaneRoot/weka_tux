@@ -103,8 +103,7 @@ public class JTGrilleTux extends JFrame
 
 		for(Tux tux: listTux)
 		{
-			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,
-					this.image_gun,this.image_montre, this.image_couettes);
+			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,	this.image_gun,this.image_montre, this.image_couettes);
 			this.buttonList.add(it);
 			this.jp_centre.add(it);
 		}
