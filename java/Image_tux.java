@@ -16,19 +16,12 @@ import javax.swing.*;
 
 import java.awt.event.*;
 
-public class Image_tux extends JButton implements ActionListener
+public class Image_tux extends JPanel implements ActionListener
 {
 	private Container c;
 	
 	public Tux t;
 	public Color couleur;
-	private boolean aUnChapeau;
-	private boolean aDesCouettes;
-	private boolean aDesPalmes;
-	private boolean aDesLunettes;
-	private boolean aUnGun;
-	private boolean aUneMontre;	
-	
 	public BufferedImage image;
 	public BufferedImage image_palmes;	
 	public BufferedImage image_lunettes;
@@ -36,6 +29,15 @@ public class Image_tux extends JButton implements ActionListener
 	public BufferedImage image_gun;
 	public BufferedImage image_montre;
 	public BufferedImage image_couettes;
+	public boolean aUnChapeau;
+	public boolean aDesCouettes;
+	public boolean aDesPalmes;
+	public boolean aDesLunettes;
+	public boolean aUnGun;
+	public boolean aUneMontre;
+	private JButton bouton;
+	private PanelTux imagep;
+	
 	
 	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre, BufferedImage image_couettes)
 	{
@@ -58,36 +60,16 @@ public class Image_tux extends JButton implements ActionListener
 		this.t = tux;
 		this.couleur = Color.CYAN;
 		this.setBackground(couleur);
-		this.addActionListener(this);
-	}
-	public void paint(Graphics g) {
-
-			g.drawImage(image, 0, 0, 180, 200, null);
-			
-			if(aDesPalmes)
-			{
-				g.drawImage(image_palmes, -67, 126, 320, 140, null);						
-			}
-			if(aDesCouettes)
-			{
-				g.drawImage(image_couettes, -62, -10, 300, 160, null);						
-			}			
-			if(aDesLunettes)
-			{
-				g.drawImage(image_lunettes, 30, 5, 130, 100, null);						
-			}
-			if(aUnChapeau)
-			{
-				g.drawImage(image_chapeau, 20, -40, 160, 120, null);						
-			}						
-			if(aUnGun)
-			{
-				g.drawImage(image_gun, 74, -15, 200, 200, null);						
-			}
-			if(aUneMontre)
-			{
-				g.drawImage(image_montre, 60, 96, 60, 60, null);						
-			}																			
+		
+		this.imagep=new PanelTux();
+		this.imagep.setImageTux(this);
+		this.bouton=new JButton("X");
+		this.add(bouton,BorderLayout.EAST);
+		this.add(imagep,BorderLayout.WEST);
+		imagep.setSize(180,200);
+		
+		bouton.addActionListener(this);
+		this.setLayout(new BorderLayout());
 	}
 	/*
 	public static void main(String args[])
@@ -106,7 +88,6 @@ public class Image_tux extends JButton implements ActionListener
 		jframe.setVisible(true);
 	}
 	*/
-
 	public void actionPerformed(ActionEvent a)
 	{
 		if(this.t.isSelected())
@@ -122,5 +103,4 @@ public class Image_tux extends JButton implements ActionListener
 			this.setBackground(couleur);
 		}
 	}
-
 }
