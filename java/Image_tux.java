@@ -29,8 +29,6 @@ public class Image_tux extends JButton implements ActionListener
 	private boolean aUnGun;
 	private boolean aUneMontre;	
 	
-	public Graphics g;
-	public Icon icon;
 	public BufferedImage image;
 	public BufferedImage image_palmes;	
 	public BufferedImage image_lunettes;
@@ -38,7 +36,6 @@ public class Image_tux extends JButton implements ActionListener
 	public BufferedImage image_gun;
 	public BufferedImage image_montre;
 	public BufferedImage image_couettes;
-	public Image image_final;
 	
 	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre, BufferedImage image_couettes)
 	{
@@ -60,13 +57,10 @@ public class Image_tux extends JButton implements ActionListener
 		this.t = tux;
 		//this.couleur = Color.CYAN;
 		//this.setBackground(this.image_final);
-		this.icon = this.getIcon();
-		paintIcon(this, this.g, 0,0);
-		this.setIcon(this.icon);
 		this.addActionListener(this);
 	}
 	
-	public void paint(Image gg) {
+	public void paint(Graphics g) {
 
 			g.drawImage(image, 0, 0, 180, 200, null);
 			
@@ -96,11 +90,6 @@ public class Image_tux extends JButton implements ActionListener
 			}	
 	}
 	
-	public Image createImage(BufferedImage bufferedImage) 
-	{
-		return Toolkit.getDefaultToolkit().createImage(bufferedImage.getSource());
-	}	
-
 	public void actionPerformed(ActionEvent a)
 	{
 		if(this.t.isSelected())
