@@ -4,7 +4,10 @@ import weka.core.Instances;
 import weka.core.Instance;
 import weka.classifiers.trees.J48;
 import weka.classifiers.Classifier;
+import weka.gui.treevisualizer.TreeVisualizer;
+import weka.gui.treevisualizer.PlaceNode2;
 import java.util.Vector;
+import javax.swing.*;
 class WekaInterface
 {
 	public static void main(String args[])
@@ -25,7 +28,14 @@ class WekaInterface
 		}*/
 		String results=WekaInterface.getResults(listTux);
 		System.out.println(results);
-		
+		JFrame window=new JFrame("Test de graph");
+        	TreeVisualizer tv = new TreeVisualizer(null, results, new PlaceNode2());
+		window.add(tv);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.pack();
+		window.setSize(800,600);
+		window.setVisible(true);
+		tv.fitToScreen();
 	}
 	public static FastVector createAttributes(Vector<String> attributes)
 	{
