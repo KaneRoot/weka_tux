@@ -22,8 +22,10 @@ public class JTGrilleTux extends JFrame
 	JLabel jl_nb_tux;
 	JTextField jtf_nb_tux;
 	JPanel jp_haut;
+	JPanel jp_centre;
 	JPanel jp_bas;
 	JButton jb_ok_nb_tux;
+	JButton jb_validation, jb_annulation;
 	int nb_colonnes = 7;
 	Vector<Image_tux> buttonList;
 	
@@ -41,18 +43,31 @@ public class JTGrilleTux extends JFrame
 		
 		chargement_image(); // charge les images.
 		
+		// Les JLabel
 		this.jl_nb_tux = new JLabel("Nombre de tux : ");
-		this.jtf_nb_tux = new JTextField("", 5);
-		this.jb_ok_nb_tux = new JButton("OK");
 
+		// Les JTextField
+		this.jtf_nb_tux = new JTextField("", 5);
+
+		// Les boutons
+		this.jb_ok_nb_tux = new JButton("OK");
+		this.jb_validation = new JButton("Valider");
+		this.jb_annulation = new JButton("Annuler");
+
+		// Les JPanels
 		this.jp_haut = new JPanel();
+		this.jp_centre = new JPanel();
 		this.jp_bas = new JPanel();
 
 		this.add(jp_haut,BorderLayout.NORTH);
 		this.jp_haut.add(jl_nb_tux);
 		this.jp_haut.add(jtf_nb_tux);
 		this.jp_haut.add(jb_ok_nb_tux);
+
+		// Ajout des actionListener
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
+		this.jb_validation.addActionListener(new JBLValidation(this));
+		this.jb_annulation.addActionListener(new JBLAnnulation(this));
 
 		this.buttonList = new Vector<Image_tux>();
 	}
@@ -71,20 +86,23 @@ public class JTGrilleTux extends JFrame
 		catch(Exception e)
 		{
 		}
-		this.jp_bas.removeAll();
+		this.jp_centre.removeAll();
 
 		Vector<Tux> listTux = TuxList.genList(nb);
 
-		this.add(this.jp_bas, BorderLayout.CENTER);
-		this.jp_bas.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
+		this.add(this.jp_centre, BorderLayout.CENTER);
+		this.jp_centre.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
 
 		for(Tux tux: listTux)
 		{
 			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,
 					this.image_gun,this.image_montre, this.image_couettes);
 			this.buttonList.add(it);
-			this.jp_bas.add(it);
+			this.jp_centre.add(it);
 		}
+
+		this.add(this.jp_bas, BorderLayout.SOUTH);
+		this.jp_bas.setLayout( new FlowLayout());
 
 		this.pack();
 	}
