@@ -29,6 +29,8 @@ public class Image_tux extends JButton implements ActionListener
 	private boolean aUnGun;
 	private boolean aUneMontre;	
 	
+	public Graphics g;
+	public Icon icon;
 	public BufferedImage image;
 	public BufferedImage image_palmes;	
 	public BufferedImage image_lunettes;
@@ -36,6 +38,7 @@ public class Image_tux extends JButton implements ActionListener
 	public BufferedImage image_gun;
 	public BufferedImage image_montre;
 	public BufferedImage image_couettes;
+	public Image image_final;
 	
 	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre, BufferedImage image_couettes)
 	{
@@ -53,14 +56,17 @@ public class Image_tux extends JButton implements ActionListener
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
 		this.aUneMontre = tux.aUneMontre();		
-		this.aUneMontre = tux.aUneMontre();						
-
+		this.aUneMontre = tux.aUneMontre();
 		this.t = tux;
-		this.couleur = Color.CYAN;
-		this.setBackground(couleur);
+		//this.couleur = Color.CYAN;
+		//this.setBackground(this.image_final);
+		this.icon = this.getIcon();
+		paintIcon(this, this.g, 0,0);
+		this.setIcon(this.icon);
 		this.addActionListener(this);
 	}
-	public void paint(Graphics g) {
+	
+	public void paint(Image gg) {
 
 			g.drawImage(image, 0, 0, 180, 200, null);
 			
@@ -87,25 +93,13 @@ public class Image_tux extends JButton implements ActionListener
 			if(aUneMontre)
 			{
 				g.drawImage(image_montre, 60, 96, 60, 60, null);						
-			}																			
+			}	
 	}
-	/*
-	public static void main(String args[])
+	
+	public Image createImage(BufferedImage bufferedImage) 
 	{
-		JFrame jframe=new JFrame("Armée de Tux");
-		JPanel conteneur=new JPanel(new GridLayout(4,5));
-		jframe.add(conteneur);
-		Vector<Tux> listTux=TuxList.genList(20);
-		for(Tux tux: listTux)
-		{
-			conteneur.add(new Image_tux(tux));
-		}
-		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jframe.pack();
-		//c = getContentPane();
-		jframe.setVisible(true);
-	}
-	*/
+		return Toolkit.getDefaultToolkit().createImage(bufferedImage.getSource());
+	}	
 
 	public void actionPerformed(ActionEvent a)
 	{
