@@ -25,7 +25,7 @@ public class JTGrilleTux extends JFrame
 	JPanel jp_centre;
 	JPanel jp_bas;
 	JButton jb_ok_nb_tux;
-	JButton jb_validation, jb_annulation;
+	JButton jb_validation, jb_annulation,jb_quitter;
 	int nb_colonnes = 7;
 	Vector<Image_tux> buttonList;
 	
@@ -53,6 +53,7 @@ public class JTGrilleTux extends JFrame
 		this.jb_ok_nb_tux = new JButton("OK");
 		this.jb_validation = new JButton("Valider");
 		this.jb_annulation = new JButton("Annuler");
+		this.jb_quitter = new JButton("Quitter");
 
 		// Les JPanels
 		this.jp_haut = new JPanel();
@@ -66,6 +67,7 @@ public class JTGrilleTux extends JFrame
 		this.jp_haut.add(jtf_nb_tux);
 		this.jp_haut.add(jb_ok_nb_tux);
 
+		this.jp_bas.add(this.jb_quitter);
 		this.jp_bas.add(this.jb_annulation);
 		this.jp_bas.add(this.jb_validation);
 
@@ -73,6 +75,7 @@ public class JTGrilleTux extends JFrame
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
 		this.jb_validation.addActionListener(new JBLValidation(this));
 		this.jb_annulation.addActionListener(new JBLAnnulation(this));
+		this.jb_quitter.addActionListener(new JBLQuitter(this));
 
 		this.buttonList = new Vector<Image_tux>();
 	}
@@ -100,8 +103,7 @@ public class JTGrilleTux extends JFrame
 
 		for(Tux tux: listTux)
 		{
-			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,
-					this.image_gun,this.image_montre, this.image_couettes);
+			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,	this.image_gun,this.image_montre, this.image_couettes);
 			this.buttonList.add(it);
 			this.jp_centre.add(it);
 		}
@@ -136,5 +138,10 @@ public class JTGrilleTux extends JFrame
 		{
 			e.printStackTrace();
 		}
+	}
+	public void quitter() 
+	{
+		this.setVisible(false);
+		System.exit(0);
 	}
 }

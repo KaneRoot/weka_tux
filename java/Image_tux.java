@@ -55,8 +55,7 @@ public class Image_tux extends JPanel implements ActionListener
 		this.aDesLunettes = tux.aDesLunettes();	
 		this.aUnGun = tux.aUnGun();	
 		this.aUneMontre = tux.aUneMontre();		
-		this.aUneMontre = tux.aUneMontre();						
-
+		this.aUneMontre = tux.aUneMontre();
 		this.t = tux;
 		this.couleur = Color.CYAN;
 		this.setBackground(couleur);
