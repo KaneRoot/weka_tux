@@ -37,6 +37,14 @@ class WekaInterface
 		window.setVisible(true);
 		tv.fitToScreen();
 	}
+	public static JPanel parseTux(Vector<Tux> listTux)
+	{
+		String results=WekaInterface.getResults(listTux);
+		System.out.println(results);
+        	TreeVisualizer tv = new TreeVisualizer(null, results, new PlaceNode2());
+		tv.fitToScreen();
+		return (JPanel) tv;
+	}
 	public static FastVector createAttributes(Vector<String> attributes)
 	{
 		FastVector valeurs = new FastVector(2);
