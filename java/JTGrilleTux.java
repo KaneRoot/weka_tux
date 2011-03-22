@@ -60,9 +60,14 @@ public class JTGrilleTux extends JFrame
 		this.jp_bas = new JPanel();
 
 		this.add(jp_haut,BorderLayout.NORTH);
+
+		// Ajout des composants aux JPanels
 		this.jp_haut.add(jl_nb_tux);
 		this.jp_haut.add(jtf_nb_tux);
 		this.jp_haut.add(jb_ok_nb_tux);
+
+		this.jp_bas.add(this.jb_annulation);
+		this.jp_bas.add(this.jb_validation);
 
 		// Ajout des actionListener
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
