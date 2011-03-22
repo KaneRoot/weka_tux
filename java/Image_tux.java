@@ -63,12 +63,15 @@ public class Image_tux extends JPanel implements ActionListener
 		this.imagep=new PanelTux();
 		this.imagep.setImageTux(this);
 		this.bouton=new JButton("X");
-		this.add(bouton,BorderLayout.EAST);
-		this.add(imagep,BorderLayout.WEST);
-		imagep.setSize(180,200);
-		
-		bouton.addActionListener(this);
+
+		//imagep.setSize(180,200);
+		bouton.setSize(180,20);
 		this.setLayout(new BorderLayout());
+		//this.setSize(180,200);
+		this.add(bouton,BorderLayout.SOUTH);
+		this.add(imagep,BorderLayout.CENTER);
+		bouton.addActionListener(this);
+		
 	}
 	/*
 	public static void main(String args[])
