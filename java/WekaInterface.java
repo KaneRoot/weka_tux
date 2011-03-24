@@ -15,7 +15,7 @@ class WekaInterface
 		Vector<Tux> listTux=TuxList.genList(20);
 		for(Tux elem: listTux)
 		{
-			if(elem.aDesCouettes())
+			if(elem.aDesCouettes() || elem.aDesPalmes())
 			{
 				elem.select();
 			}
@@ -40,7 +40,7 @@ class WekaInterface
 	public static JPanel parseTux(Vector<Tux> listTux)
 	{
 		String results=WekaInterface.getResults(listTux);
-		System.out.println(results);
+		//System.out.println(results);
         	TreeVisualizer tv = new TreeVisualizer(null, results, new PlaceNode2());
 		tv.fitToScreen();
 		return (JPanel) tv;

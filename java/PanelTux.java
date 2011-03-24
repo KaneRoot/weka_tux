@@ -33,7 +33,8 @@ public class PanelTux extends JPanel
 				}
 				if(image_tux.aUneMontre)
 				{
-					g.drawImage(image_tux.image_montre, 60, 96, 60, 60, null);						
-				}																			
+					g.drawImage(image_tux.image_montre, 60, 96, 60, 60, null);
+				}						
+				((Graphics2D)g).scale(this.getWidth(),this.getHeight());
 			};
 }

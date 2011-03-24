@@ -24,11 +24,12 @@ public class JTGrilleTux extends JFrame
 	JPanel jp_haut;
 	JPanel jp_centre;
 	JPanel jp_bas;
+	JScrollPane jsp_centre;
 	JButton jb_ok_nb_tux;
 	JButton jb_validation, jb_annulation,jb_quitter;
 	int nb_colonnes = 7;
 	Vector<Image_tux> buttonList;
-	
+	private Vector<Tux> listTux;
 	BufferedImage image;
 	BufferedImage image_palmes;
 	BufferedImage image_lunettes;
@@ -58,8 +59,9 @@ public class JTGrilleTux extends JFrame
 		// Les JPanels
 		this.jp_haut = new JPanel();
 		this.jp_centre = new JPanel();
+		this.jsp_centre = new JScrollPane(this.jp_centre);
 		this.jp_bas = new JPanel();
-
+		
 		this.add(jp_haut,BorderLayout.NORTH);
 
 		// Ajout des composants aux JPanels
@@ -70,7 +72,8 @@ public class JTGrilleTux extends JFrame
 		this.jp_bas.add(this.jb_quitter);
 		this.jp_bas.add(this.jb_annulation);
 		this.jp_bas.add(this.jb_validation);
-
+		//this.jsp_centre.add(this.jp_centre);
+		
 		// Ajout des actionListener
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
 		this.jb_validation.addActionListener(new JBLValidation(this));
@@ -96,11 +99,11 @@ public class JTGrilleTux extends JFrame
 		}
 		this.jp_centre.removeAll();
 
-		Vector<Tux> listTux = TuxList.genList(nb);
-
-		this.add(this.jp_centre, BorderLayout.CENTER);
+		this.listTux = TuxList.genList(nb);
+		
+		this.add(this.jsp_centre, BorderLayout.CENTER);
 		this.jp_centre.setLayout(new GridLayout(nb_lignes, this.nb_colonnes));
-
+		
 		for(Tux tux: listTux)
 		{
 			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,	this.image_gun,this.image_montre, this.image_couettes);
@@ -138,6 +141,10 @@ public class JTGrilleTux extends JFrame
 		{
 			e.printStackTrace();
 		}
+	}
+	public Vector<Tux> getTux()
+	{
+		return this.listTux;
 	}
 	public void quitter() 
 	{

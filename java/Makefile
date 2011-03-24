@@ -11,13 +11,15 @@ affichage.class: affichage.java JTGrilleTux.class
 	javac affichage.java
 JTGrilleTux.class:JTGrilleTux.java JButtonListener.class
 	javac JTGrilleTux.java
+PanelTux.class:PanelTux.java
+	javac PanelTux.java
 JButtonListener.class: JButtonListener.java
 	javac JButtonListener.java
 JBLQuitter.class: JBLQuitter.java
 	javac JBLQuitter.java
 JBLValidation.class: JBLValidation.java
-	javac JBLValidation.java
+	javac -cp ../weka/weka.jar:./ JBLValidation.java
 JBLAnnulation.class: JBLAnnulation.java
 	javac JBLAnnulation.java
-Image_tux.class: Image_tux.java Tux.class
+Image_tux.class: Image_tux.java Tux.class PanelTux.class
 	javac Image_tux.java
