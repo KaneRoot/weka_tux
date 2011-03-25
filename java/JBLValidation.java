@@ -18,7 +18,7 @@ public class JBLValidation implements ActionListener
 		JFrame window=new JFrame("Arbre de décision");
 		window.add(np);
 		window.pack();
-		window.setSize(800,600);
+		window.setSize(400,400);
 		window.setVisible(true);
 		((TreeVisualizer)np).fitToScreen();
 	}

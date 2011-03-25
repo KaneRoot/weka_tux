@@ -1,6 +1,8 @@
 all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class JBLValidation.class JBLAnnulation.class JBLQuitter.class
 clean:
 	rm *.class
+start:
+	java -cp ../weka/weka.jar:./ affichage
 Tux.class:Tux.java
 	javac Tux.java
 TuxList.class:Tux.class TuxList.java
