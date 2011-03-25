@@ -10,11 +10,11 @@ WekaInterface.class: TuxList.class WekaInterface.java ../weka/weka.jar
 affichage.class: affichage.java JTGrilleTux.class
 	javac affichage.java
 JTGrilleTux.class:JTGrilleTux.java JButtonListener.class
-	javac JTGrilleTux.java
+	javac JTGrilleTux.java -cp ../weka/weka.jar:./
 PanelTux.class:PanelTux.java
 	javac PanelTux.java
 JButtonListener.class: JButtonListener.java
-	javac JButtonListener.java
+	javac -cp ../weka/weka.jar:./ JButtonListener.java
 JBLQuitter.class: JBLQuitter.java
 	javac JBLQuitter.java
 JBLValidation.class: JBLValidation.java
