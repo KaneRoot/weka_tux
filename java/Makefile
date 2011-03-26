@@ -1,4 +1,4 @@
-all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class JBLValidation.class JBLAnnulation.class JBLQuitter.class
+all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class JBLValidation.class JBLAnnulation.class JBLQuitter.class JTFEnter.class
 clean:
 	rm *.class
 start:
@@ -14,6 +14,8 @@ affichage.class: affichage.java JTGrilleTux.class
 JTGrilleTux.class:JTGrilleTux.java JButtonListener.class
 	javac -cp ../weka/weka.jar:./ JTGrilleTux.java
 
+JTFEnter.class: JTFEnter.java
+	javac -cp ../weka/weka.jar:./ JTFEnter.java
 JButtonListener.class: JButtonListener.java
 	javac -cp ../weka/weka.jar:./ JButtonListener.java
 JBLQuitter.class: JBLQuitter.java

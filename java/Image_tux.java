@@ -36,7 +36,6 @@ public class Image_tux extends JPanel implements ActionListener
 	public boolean aUnGun;
 	public boolean aUneMontre;
 	private JButton bouton;
-	private PanelTux imagep;
 	private ImageIcon ic;
 	
 	public Image tuxi;

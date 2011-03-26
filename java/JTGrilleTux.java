@@ -27,7 +27,7 @@ public class JTGrilleTux extends JFrame
 	JScrollPane jsp_centre;
 	JButton jb_ok_nb_tux;
 	JButton jb_validation, jb_annulation,jb_quitter;
-	int nb_colonnes = 7;
+	int nb_colonnes = 5;
 	Vector<Image_tux> buttonList;
 	private Vector<Tux> listTux;
 	BufferedImage image;
@@ -79,6 +79,7 @@ public class JTGrilleTux extends JFrame
 		this.jb_validation.addActionListener(new JBLValidation(this));
 		this.jb_annulation.addActionListener(new JBLAnnulation(this));
 		this.jb_quitter.addActionListener(new JBLQuitter(this));
+		this.jtf_nb_tux.addActionListener(new JTFEnter(this));
 
 		this.buttonList = new Vector<Image_tux>();
 	}
@@ -106,7 +107,7 @@ public class JTGrilleTux extends JFrame
 		
 		for(Tux tux: listTux)
 		{
-			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau,	this.image_gun,this.image_montre, this.image_couettes);
+			Image_tux it = new Image_tux(tux, this.image, this.image_palmes, this.image_lunettes,this.image_chapeau, this.image_gun,this.image_montre, this.image_couettes);
 			this.buttonList.add(it);
 			this.jp_centre.add(it);
 		}
