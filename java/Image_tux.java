@@ -37,6 +37,11 @@ public class Image_tux extends JPanel implements ActionListener
 	public boolean aUneMontre;
 	private JButton bouton;
 	private PanelTux imagep;
+	private ImageIcon ic;
+	
+	public Image tuxi;
+	
+	public BufferedImage image_f;
 	
 	
 	public Image_tux(Tux tux, BufferedImage image, BufferedImage image_palmes, BufferedImage image_lunettes, BufferedImage image_chapeau, BufferedImage image_gun, BufferedImage image_montre, BufferedImage image_couettes)
@@ -56,52 +61,73 @@ public class Image_tux extends JPanel implements ActionListener
 		this.aUnGun = tux.aUnGun();	
 		this.aUneMontre = tux.aUneMontre();		
 		this.aUneMontre = tux.aUneMontre();
+		
 		this.t = tux;
+		this.bouton = new JButton();
 		this.couleur = Color.CYAN;
 		this.setBackground(couleur);
-		
-		this.imagep=new PanelTux();
-		this.imagep.setImageTux(this);
-		this.bouton=new JButton("X");
+	
+		this.image_f = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
+		crea_image(image_f.createGraphics());
+	
+		this.ic = new ImageIcon(this.image_f);
 
-		//imagep.setSize(180,200);
-		bouton.setSize(180,20);
+
+		this.bouton.setIcon(ic);
+		this.bouton.setOpaque(true);
+		
 		this.setLayout(new BorderLayout());
-		this.add(bouton,BorderLayout.SOUTH);
-		this.add(imagep,BorderLayout.CENTER);
-		bouton.addActionListener(this);
+		this.add(bouton,BorderLayout.CENTER);
+		this.bouton.addActionListener(this);
 		
 	}
-	/*
-	public static void main(String args[])
-	{
-		JFrame jframe=new JFrame("Armée de Tux");
-		JPanel conteneur=new JPanel(new GridLayout(4,5));
-		jframe.add(conteneur);
-		Vector<Tux> listTux=TuxList.genList(20);
-		for(Tux tux: listTux)
-		{
-			conteneur.add(new Image_tux(tux));
-		}
-		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jframe.pack();
-		//c = getContentPane();
-		jframe.setVisible(true);
-	}
-	*/
+
 	public void actionPerformed(ActionEvent a)
 	{
 		if(this.t.isSelected())
 		{
 			this.t.deselect();
-			this.couleur = Color.CYAN;
-			this.setBackground(couleur);
+			this.couleur = Color.RED;
+			this.bouton.setBackground(couleur);
 		}
 		else
 		{
-			this.couleur = Color.RED;
+			this.couleur = Color.GREEN;
 			this.t.select();
-			this.setBackground(couleur);
+			this.bouton.setBackground(couleur);
 		}
 	}
+	
+	    
+	public void crea_image(Graphics2D g) {
+
+				g.drawImage(this.image, 0, 0, 180, 200, null);
+			
+				if(aDesPalmes)
+				{
+					g.drawImage(this.image_palmes, -67, 126, 320, 140, null);						
+				}
+				if(aDesCouettes)
+				{
+					g.drawImage(this.image_couettes, -62, -10, 300, 160, null);						
+				}			
+				if(aDesLunettes)
+				{
+					g.drawImage(this.image_lunettes, 30, 5, 130, 100, null);						
+				}
+				if(aUnChapeau)
+				{
+					g.drawImage(this.image_chapeau, 20, -40, 160, 120, null);						
+				}						
+				if(aUnGun)
+				{
+					g.drawImage(this.image_gun, 74, -15, 200, 200, null);						
+				}
+				if(aUneMontre)
+				{
+					g.drawImage(this.image_montre, 60, 96, 60, 60, null);
+				}
+	}
+
+
 }
