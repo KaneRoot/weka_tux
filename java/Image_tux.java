@@ -63,8 +63,6 @@ public class Image_tux extends JPanel implements ActionListener
 		
 		this.t = tux;
 		this.bouton = new JButton();
-		this.couleur = Color.CYAN;
-		this.setBackground(couleur);
 	
 		this.image_f = new BufferedImage(180, 200, BufferedImage.TYPE_INT_ARGB);
 		crea_image(image_f.createGraphics());
@@ -74,6 +72,9 @@ public class Image_tux extends JPanel implements ActionListener
 
 		this.bouton.setIcon(ic);
 		this.bouton.setOpaque(true);
+		this.t.deselect();
+		this.bouton.setBackground(Color.RED);
+		
 		
 		this.setLayout(new BorderLayout());
 		this.add(bouton,BorderLayout.CENTER);
