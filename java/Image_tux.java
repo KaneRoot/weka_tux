@@ -66,7 +66,7 @@ public class Image_tux extends JPanel implements ActionListener
 		this.couleur = Color.CYAN;
 		this.setBackground(couleur);
 	
-		this.image_f = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
+		this.image_f = new BufferedImage(180, 200, BufferedImage.TYPE_INT_ARGB);
 		crea_image(image_f.createGraphics());
 	
 		this.ic = new ImageIcon(this.image_f);
@@ -100,31 +100,31 @@ public class Image_tux extends JPanel implements ActionListener
 	    
 	public void crea_image(Graphics2D g) {
 
-				g.drawImage(this.image, 0, 0, 180, 200, null);
+				g.drawImage(this.image, 0, 0, null);
 			
 				if(aDesPalmes)
 				{
-					g.drawImage(this.image_palmes, -67, 126, 320, 140, null);						
+					g.drawImage(this.image_palmes, 0, 0, null);						
 				}
 				if(aDesCouettes)
 				{
-					g.drawImage(this.image_couettes, -62, -10, 300, 160, null);						
+					g.drawImage(this.image_couettes, 0, 0, null);						
 				}			
 				if(aDesLunettes)
 				{
-					g.drawImage(this.image_lunettes, 30, 5, 130, 100, null);						
+					g.drawImage(this.image_lunettes, 0, 0, null);						
 				}
 				if(aUnChapeau)
 				{
-					g.drawImage(this.image_chapeau, 20, -40, 160, 120, null);						
+					g.drawImage(this.image_chapeau, 0, 0, null);						
 				}						
 				if(aUnGun)
 				{
-					g.drawImage(this.image_gun, 74, -15, 200, 200, null);						
+					g.drawImage(this.image_gun, 0, 0, null);						
 				}
 				if(aUneMontre)
 				{
-					g.drawImage(this.image_montre, 60, 96, 60, 60, null);
+					g.drawImage(this.image_montre, 0, 0, null);
 				}
 	}
 
