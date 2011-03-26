@@ -1,27 +1,29 @@
-all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class JBLValidation.class JBLAnnulation.class JBLQuitter.class
+CLASSPATH = -cp '../weka/weka.jar;./'
+all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class JBLValidation.class JBLAnnulation.class JBLQuitter.class JTFEnter.class
 clean:
-	rm *.class
+	del *.class
 start:
-	java -cp '../weka/weka.jar;./' affichage
+	java $(CLASSPATH) affichage
 Tux.class:Tux.java
 	javac Tux.java
 TuxList.class:Tux.class TuxList.java
-	javac TuxList.java
+	javac $(CLASSPATH) TuxList.java
 WekaInterface.class: TuxList.class WekaInterface.java ../weka/weka.jar
-	javac -cp '../weka/weka.jar;./' WekaInterface.java
+	javac $(CLASSPATH) WekaInterface.java
 affichage.class: affichage.java JTGrilleTux.class
-	javac affichage.java
+	javac $(CLASSPATH) affichage.java
 JTGrilleTux.class:JTGrilleTux.java JButtonListener.class
-	javac -cp '../weka/weka.jar;./' JTGrilleTux.java
-PanelTux.class:PanelTux.java
-	javac PanelTux.java
+	javac $(CLASSPATH) JTGrilleTux.java
+
+JTFEnter.class: JTFEnter.java
+	javac $(CLASSPATH) JTFEnter.java
 JButtonListener.class: JButtonListener.java
-	javac -cp '../weka/weka.jar;./' JButtonListener.java
+	javac $(CLASSPATH) JButtonListener.java
 JBLQuitter.class: JBLQuitter.java
 	javac JBLQuitter.java
 JBLValidation.class: JBLValidation.java
-	javac -cp '../weka/weka.jar;./' JBLValidation.java
+	javac $(CLASSPATH) JBLValidation.java
 JBLAnnulation.class: JBLAnnulation.java
 	javac JBLAnnulation.java
-Image_tux.class: Image_tux.java Tux.class PanelTux.class
+Image_tux.class: Image_tux.java Tux.class
 	javac Image_tux.java
