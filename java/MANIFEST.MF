@@ -1,0 +1,3 @@
+Main-Class: affichage
+Class-Path: weka.jar
+
