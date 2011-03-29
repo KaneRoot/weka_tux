@@ -41,7 +41,7 @@ public class JTGrilleTux extends JFrame
 	private static URLClassLoader urlLoader = (URLClassLoader)ClassLoader.getSystemClassLoader();	
 	public static URL charge_fichier(String fichier) 
 	{
-				return urlLoader.findResource(fichier);
+		return urlLoader.findResource(fichier);
 	}
 	public JTGrilleTux(String nom)
 	{
