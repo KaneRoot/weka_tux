@@ -2,26 +2,26 @@ all: WekaInterface.class affichage.class Image_tux.class JButtonListener.class J
 clean:
 	rm *.class
 start:
-	java -cp ../weka/weka.jar:./ affichage
+	java -cp ./weka.jar:./ affichage
 Tux.class:Tux.java
 	javac Tux.java
 TuxList.class:Tux.class TuxList.java
 	javac TuxList.java
-WekaInterface.class: TuxList.class WekaInterface.java ../weka/weka.jar
-	javac -cp ../weka/weka.jar:./ WekaInterface.java
+WekaInterface.class: TuxList.class WekaInterface.java ./weka.jar
+	javac -cp ./weka.jar:./ WekaInterface.java
 affichage.class: affichage.java JTGrilleTux.class
 	javac affichage.java
 JTGrilleTux.class:JTGrilleTux.java JButtonListener.class
-	javac -cp ../weka/weka.jar:./ JTGrilleTux.java
+	javac -cp ./weka.jar:./ JTGrilleTux.java
 
 JTFEnter.class: JTFEnter.java
-	javac -cp ../weka/weka.jar:./ JTFEnter.java
+	javac -cp ./weka.jar:./ JTFEnter.java
 JButtonListener.class: JButtonListener.java
-	javac -cp ../weka/weka.jar:./ JButtonListener.java
+	javac -cp ./weka.jar:./ JButtonListener.java
 JBLQuitter.class: JBLQuitter.java
 	javac JBLQuitter.java
 JBLValidation.class: JBLValidation.java
-	javac -cp ../weka/weka.jar:./ JBLValidation.java
+	javac -cp ./weka.jar:./ JBLValidation.java
 JBLAnnulation.class: JBLAnnulation.java
 	javac JBLAnnulation.java
 Image_tux.class: Image_tux.java Tux.class
