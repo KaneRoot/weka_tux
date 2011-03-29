@@ -121,13 +121,13 @@ public class JTGrilleTux extends JFrame
 	
 	public void chargement_image()
 	{
-		String chemin_image = "../images/background.png";
-		String chemin_image_gun = "../images/gun.png";
-		String chemin_image_palmes = "../images/palmes.png";
-		String chemin_image_lunettes = "../images/lunettes.png";
-		String chemin_image_montre = "../images/montre.png";
-		String chemin_image_chapeau = "../images/chapeau.png";
-		String chemin_image_couettes = "../images/couettes.png";		
+		String chemin_image = "./images/background.png";
+		String chemin_image_gun = "./images/gun.png";
+		String chemin_image_palmes = "./images/palmes.png";
+		String chemin_image_lunettes = "./images/lunettes.png";
+		String chemin_image_montre = "./images/montre.png";
+		String chemin_image_chapeau = "./images/chapeau.png";
+		String chemin_image_couettes = "./images/couettes.png";		
 	
 		try 
 		{
