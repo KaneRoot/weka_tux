@@ -1,19 +1,6 @@
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.*;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.util.Vector;
 import java.awt.*;
 import javax.swing.*;
-
 import java.awt.event.*;
 
 public class Image_tux extends JPanel implements ActionListener
