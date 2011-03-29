@@ -6,7 +6,8 @@ import java.util.Vector;
 import javax.swing.table.*;
 import javax.swing.text.*;
 import javax.swing.event.*;
-
+import java.net.URLClassLoader;
+import java.net.URL;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -37,13 +38,15 @@ public class JTGrilleTux extends JFrame
 	BufferedImage image_gun;
 	BufferedImage image_montre;
 	BufferedImage image_couettes;	
-	
+	private static URLClassLoader urlLoader = (URLClassLoader)ClassLoader.getSystemClassLoader();	
+	public static URL charge_fichier(String fichier) 
+	{
+				return urlLoader.findResource(fichier);
+	}
 	public JTGrilleTux(String nom)
 	{
 		super(nom);
-		
 		chargement_image(); // charge les images.
-		
 		// Les JLabel
 		this.jl_nb_tux = new JLabel("Nombre de tux : ");
 
@@ -121,23 +124,22 @@ public class JTGrilleTux extends JFrame
 	
 	public void chargement_image()
 	{
-		String chemin_image = "./images/background.png";
-		String chemin_image_gun = "./images/gun.png";
-		String chemin_image_palmes = "./images/palmes.png";
-		String chemin_image_lunettes = "./images/lunettes.png";
-		String chemin_image_montre = "./images/montre.png";
-		String chemin_image_chapeau = "./images/chapeau.png";
-		String chemin_image_couettes = "./images/couettes.png";		
-	
+		String chemin_image = "images/background.png";
+		String chemin_image_gun = "images/gun.png";
+		String chemin_image_palmes = "images/palmes.png";
+		String chemin_image_lunettes = "images/lunettes.png";
+		String chemin_image_montre = "images/montre.png";
+		String chemin_image_chapeau = "images/chapeau.png";
+		String chemin_image_couettes = "images/couettes.png";
 		try 
 		{
-			this.image = ImageIO.read(new File(chemin_image));
-			this.image_palmes = ImageIO.read(new File(chemin_image_palmes));	
-			this.image_lunettes = ImageIO.read(new File(chemin_image_lunettes));
-			this.image_chapeau = ImageIO.read(new File(chemin_image_chapeau));
-			this.image_gun = ImageIO.read(new File(chemin_image_gun));
-			this.image_montre = ImageIO.read(new File(chemin_image_montre));
-			this.image_couettes = ImageIO.read(new File(chemin_image_couettes));			
+			this.image = ImageIO.read(charge_fichier(chemin_image));
+			this.image_palmes = ImageIO.read(charge_fichier(chemin_image_palmes));
+			this.image_lunettes = ImageIO.read(charge_fichier(chemin_image_lunettes));
+			this.image_chapeau = ImageIO.read(charge_fichier(chemin_image_chapeau));
+			this.image_gun = ImageIO.read(charge_fichier(chemin_image_gun));
+			this.image_montre = ImageIO.read(charge_fichier(chemin_image_montre));
+			this.image_couettes = ImageIO.read(charge_fichier(chemin_image_couettes));
 		} 
 		catch (IOException e) 
 		{
