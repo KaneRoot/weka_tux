@@ -45,7 +45,7 @@ public class JTGrilleTux extends JFrame
 		chargement_image(); // charge les images.
 		
 		// Les JLabel
-		this.jl_nb_tux = new JLabel("Nombre de tux : ");
+		this.jl_nb_tux = new JLabel("Nombre de tux (pas plus de 64) : ");
 
 		// Les JTextField
 		this.jtf_nb_tux = new JTextField("", 5);
@@ -72,7 +72,6 @@ public class JTGrilleTux extends JFrame
 		this.jp_bas.add(this.jb_quitter);
 		this.jp_bas.add(this.jb_annulation);
 		this.jp_bas.add(this.jb_validation);
-		//this.jsp_centre.add(this.jp_centre);
 		
 		// Ajout des actionListener
 		this.jb_ok_nb_tux.addActionListener(new JButtonListener(this));
