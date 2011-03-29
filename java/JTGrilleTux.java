@@ -89,6 +89,7 @@ public class JTGrilleTux extends JFrame
 		nb = Integer.parseInt(jtf_nb_tux.getText());
 		if(nb == 0) nb++;
 		nb = nb % (Tux.maxPermutations() + 1);
+		jtf_nb_tux.setText("" + nb);
 		int nb_lignes = (nb / this.nb_colonnes) +1 ;
 
 		try
